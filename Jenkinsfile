@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Checkstyle') {
            steps {        
-        checkstyle pattern: 'test.xml'
+        checkstyle pattern: 'eslint.xml'
            }
         }
         
