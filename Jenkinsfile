@@ -8,6 +8,14 @@ pipeline {
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
             }
         }
+        stage('Checkstyle') {
+           steps {        
+        checkstyle pattern: 'test.xml'
+           }
+        }
+        
+        
+        
         stage('Test') {
             steps {
                 echo 'Testing..'
