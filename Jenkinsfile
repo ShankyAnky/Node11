@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo npm install -g'
+                sh 'npm install -g'
                 sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . > eslint.xml'
             }
         }
