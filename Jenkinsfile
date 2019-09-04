@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . > eslint.xml'
             }
         }
         stage('Test') {
