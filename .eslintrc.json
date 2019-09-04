@@ -7,7 +7,12 @@
     "globals": {
       "exampleGlobalVariable": true
     },
-    "ecmaFeatures": {
+    "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true,
+          "modules": true
+      }
+  },
     "arrowFunctions": true,
     "binaryLiterals": true,
     "blockBindings": true,
