@@ -18,6 +18,12 @@ pipeline {
         checkstyle pattern: 'eslint.xml'
            }
         }
+        stage ("Extract test results") {
+            steps {
+                cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
+            }
+            
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
