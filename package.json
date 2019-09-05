@@ -58,18 +58,6 @@
       "jsdoc"
     ]
   },
-  "nyc": {
-    "exclude": [
-      "test/**/*.js"
-    ],
-    "reporter": [
-      "cobertura",
-      "html",
-      "lcov",
-      "text-summary"
-    ],
-    "report-dir": "./reports"
-  },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
