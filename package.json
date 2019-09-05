@@ -83,7 +83,7 @@
     "nyc": "^11.2.1",
     "sinon": "^6.1.4"
     "mock-req": "^0.2.0",
-    "mock-res": "^0.5.0"/*,
+    "mock-res": "^0.5.0",
     "mockgoose": "^7.3.5",
     "proxyquire": "^2.0.1",
    
