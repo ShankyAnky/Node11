@@ -14,9 +14,7 @@ pipeline {
         checkstyle pattern: 'eslint.xml'
            }
         }
-        stage('Publish test results') {
-        junit '**/test-results/test/*.xml'
-        } 
+        
         
         
         
