@@ -18,13 +18,6 @@ pipeline {
         checkstyle pattern: 'eslint.xml'
            }
         }
-       
-         stage ("Extract test results") {
-             steps {
-        junit 'one.xml'
-                              }
-         }
-        
         stage('Test') {
             steps {
                 echo 'Testing..'
