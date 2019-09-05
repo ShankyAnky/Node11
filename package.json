@@ -1,6 +1,6 @@
 {
   "name": "apitesting",
-  "version": "1.0.0",
+  "version": "1.0.0",                                                                                      
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,14 +19,73 @@
     "mongoose": "^5.2.6",
     "morgan": "^1.9.0"
   },
+  
+}
+"eslintConfig": {
+    "env": {
+      "es6": true,
+      "mocha": true,
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "no-underscore-dangle": 0,
+      "no-param-reassign": 0,
+      "object-curly-newline": 0,
+      "jsdoc/check-param-names": 2,
+      "jsdoc/check-tag-names": 2,
+      "jsdoc/check-types": 2,
+      "jsdoc/newline-after-description": 2,
+      "jsdoc/require-hyphen-before-param-description": 2,
+      "jsdoc/require-param": 2,
+      "jsdoc/require-param-name": 2,
+      "jsdoc/require-param-type": 2,
+      "jsdoc/require-returns-type": 2,
+      "require-jsdoc": [
+        "error",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": false,
+            "ArrowFunctionExpression": true,
+            "FunctionExpression": true
+          }
+        }
+      ]
+    },
+    "plugins": [
+      "jsdoc"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "test/**/*.js"
+    ],
+    "reporter": [
+      "cobertura",
+      "html",
+      "lcov",
+      "text-summary"
+    ],
+    "report-dir": "./reports"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsdoc": "^3.3.0",
     "mocha": "^5.2.0",
+    "nock": "^9.1.4",
+    "nyc": "^11.2.1",
+    "sinon": "^6.1.4"
+    "mock-req": "^0.2.0",
+    "mock-res": "^0.5.0"/*,
     "mockgoose": "^7.3.5",
     "proxyquire": "^2.0.1",
-    "sinon": "^6.1.4",   
-    "nyc": "^11.2.1"
+    // WARNING
+    "proxyquire": "^1.8.0" // dfcdfdfdf*/
   }
-}
