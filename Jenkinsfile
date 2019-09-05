@@ -14,11 +14,7 @@ pipeline {
         checkstyle pattern: 'eslint.xml'
            }
         }
-        
-        post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
+       
         
         
         
