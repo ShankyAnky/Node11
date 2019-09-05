@@ -6,7 +6,7 @@ pipeline {
             steps {
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
-                    sh './node_modules/.bin/nyc node_modules/.bin/_mocha "test/**/*.js" > coverage.xml'
+                    sh './node_modules/.bin/nyc node_modules/.bin/_mocha "test/**/*.js"'
                     sh 'ls -la'
                     sh 'cat coverage.xml'
                   
@@ -21,7 +21,7 @@ pipeline {
        
          stage ("Extract test results") {
              steps {
-    cobertura coberturaReportFile: 'coverage.xml'
+    cobertura coberturaReportFile: '*.xml'
                               }
          }
         
