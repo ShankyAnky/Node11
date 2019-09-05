@@ -7,7 +7,7 @@ pipeline {
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc node_modules/.bin/_mocha 'test/**/*.js'                    
-                //sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
+                //  sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
             }
         }
         stage('Checkstyle') {
