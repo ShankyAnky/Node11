@@ -21,7 +21,7 @@ pipeline {
        
          stage ("Extract test results") {
              steps {
-    cobertura coberturaReportFile: 'one.xml'
+        junit 'one.xml'
                               }
          }
         
