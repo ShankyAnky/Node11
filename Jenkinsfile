@@ -29,7 +29,8 @@
         }
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('darpan') {
+                sh 'node sonar-project.js'
                    
                     }
                 }
