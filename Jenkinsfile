@@ -22,9 +22,7 @@ pipeline {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         }
-       
-        
-         stages {
+        stages {
         stage('Ok') {
             steps {
                 echo "Ok"
@@ -37,20 +35,3 @@ pipeline {
         }
     }
         
-        
-        
-        
-        
-        
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-} 
