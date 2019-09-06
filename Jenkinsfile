@@ -7,7 +7,7 @@
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-                    sh 'ls -ls'
+                    sh 'ls -la'
             }
         }
         
@@ -22,6 +22,22 @@
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         } 
+        stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+          stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
+        
         
     }
         environment {
