@@ -22,7 +22,7 @@
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         }
-      environment {
+        environment {
             EMAIL_TO = 'darpan.patel@volansys.com'
         }  
         
