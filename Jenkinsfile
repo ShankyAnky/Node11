@@ -31,7 +31,7 @@
             steps {
                 withSonarQubeEnv('darpan') {
                 sh 'node sonar-project.js'
-                   
+                sh 'npm install sonarqube-scanner --save-dev'   
                     }
                 }
             }
