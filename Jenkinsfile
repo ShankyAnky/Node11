@@ -1,4 +1,4 @@
-pipeline {
+    pipeline {
     agent any
 
     stages {
@@ -23,15 +23,26 @@ pipeline {
             }
         }
         
-        stage('Ok') {
+        stage ('success'){
             steps {
-                echo 'Ok'
+                script {
+                    currentBuild.result = 'SUCCESS'
+                }
             }
         }
     }
     post {
+        failure {
+            script {
+                currentBuild.result = 'FAILURE'
+            }
+        }
+
         always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+            step([$class: 'Mailer',
+                notifyEveryUnstableBuild: true,
+                recipients: "darpan.patel@volansys.com",
+                sendToIndividuals: true])
         }
     }
         
