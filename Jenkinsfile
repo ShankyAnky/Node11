@@ -1,4 +1,4 @@
-      pipeline {
+pipeline {
     agent any
 
     stages {
@@ -22,7 +22,7 @@
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         }
-        stages {
+        
         stage('Ok') {
             steps {
                 echo 'Ok'
