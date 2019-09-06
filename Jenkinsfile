@@ -29,7 +29,7 @@
         }
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('My SonarQube Server') {
+                withSonarQubeEnv('SonarQube') {
                    
                     }
                 }
