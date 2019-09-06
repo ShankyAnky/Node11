@@ -7,7 +7,7 @@
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-                    sh 'npm install sonarqube-scanner --save-dev' 
+                    sh 'ls -la'
             }
         }
         
@@ -31,14 +31,14 @@
             steps {
                 withSonarQubeEnv('darpan') {
                 sh 'node sonar-project.js'
-                  
+                   
                     }
                 }
-            }
+            }   
         
         stage("Quality Gate") {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
+                timeout(time: 1, unit: 'MINUTES') {
                     // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
                     // true = set pipeline to UNSTABLE, false = don't
                     waitForQualityGate abortPipeline: true
