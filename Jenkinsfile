@@ -2,7 +2,7 @@
     agent any
 
     stages {
-        stag('Build and Test') {
+        stage('Build and Test') {
             steps {
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
