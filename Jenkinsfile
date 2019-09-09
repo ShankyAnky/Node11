@@ -7,6 +7,7 @@
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+                    sh 'npm install sonarqube-scanner --save-dev' 
                     sh 'ls -la'
             }
         }
@@ -36,18 +37,7 @@
                 }
             }   
         
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    waitForQualityGate abortPipeline: true
-                }
-            }
         }
-        
-        
-    }
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com'
         } 
