@@ -47,14 +47,14 @@ pipeline {
       }
     }
   }   
-       }
+       
 
 
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com'
         } 
      
-         
+}   
          
            post {
             
