@@ -36,12 +36,7 @@
                     }
                 }
             } 
-        stage("sidebar links") {
-        steps  {
-        sidebar links {
-        link('https://github.com/Ganter123/Node11.git', 'github', 'gitcommiturl')
-        }    
-        }
+        
     }
         
         
@@ -51,6 +46,9 @@
         } 
      
     post {
+        always {
+                addShortText(text: "Darpan", background: 'yellow', border: 1);   
+        }
             failure {
                 emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
                         to: EMAIL_TO, 
