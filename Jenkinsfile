@@ -35,7 +35,7 @@ pipeline {
      stage("sidebar link") {
         steps  { 
         addBadge(text: "scm", link: "https://github.com/Ganter123/Node11.git")  
-         
+        addShortText(text: "${GIT_AUTHOR_NAME}")   
 
         }
     }
@@ -51,7 +51,8 @@ pipeline {
 
 
         environment {
-            EMAIL_TO = 'darpan.patel@volansys.com'
+            EMAIL_TO = 'darpan.patel@volansys.com' 
+            GIT_AUTHOR_NAME  = 'Ganter123'
         } 
        
          
