@@ -36,11 +36,7 @@
                     }
                 }
             } 
-        stage('build'){
-        steps{
-          buildPlugin()
-        }
-      }
+        
         
         
         }
