@@ -1,4 +1,5 @@
-pipeline {
+
+       pipeline {
     agent any
 
     stages {
@@ -18,38 +19,36 @@ pipeline {
            }
         }
         
-        stage ("Extract test results") {
+        stage("Extract test results") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         } 
-        stage('SCM') {
-            steps {
-                git url: 'https://github.com/Ganter123/Node11.git'
-            }
-        }
+       
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('darpan') {
+                withSonarQubeEnv('sonarqube') {
                 sh 'node sonar-project.js'
                    
                     }
                 }
-            } 
-        stage("sidebar link") {
-        steps  {
-        addBadge(text: "scm", link: "https://github.com/Ganter123/Node11.git")   
+        }
+     stage("sidebar link") {
+        steps  { 
+        addBadge(text: "scm", link: "https://github.com/Ganter123/Node11.git")  
+         
+
         }
     }
-        
-    }
-}
+  }   
+       }
+
+
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com'
         } 
      
     post {
-        
             failure {
                 emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
                         to: EMAIL_TO, 
@@ -65,8 +64,4 @@ pipeline {
                         to: EMAIL_TO, 
                         subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
             }
-    }
-           
-    
-    
-    
+        }
