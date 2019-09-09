@@ -36,6 +36,11 @@
                     }
                 }
             } 
+        stage('build'){
+        steps{
+          buildPlugin()
+        }
+      }
         
         
         }
