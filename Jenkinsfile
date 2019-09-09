@@ -36,9 +36,9 @@
                     }
                 }
             } 
-        stage("sidebarLinks") {
+        stage("sidebar links") {
         steps  {
-        sidebarLinks {
+        sidebar links {
         link('https://github.com/Ganter123/Node11.git', 'github', 'gitcommiturl')
         }    
         }
