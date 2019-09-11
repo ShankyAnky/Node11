@@ -5,7 +5,7 @@ pipeline {
         
         stage('Build and Test') {
             steps { 
-                    sh 'apt install npm -y'
+                    sh 'sudo apt install npm -y'
                     sh 'echo ${GIT_USER}'
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
