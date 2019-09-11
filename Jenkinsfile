@@ -59,7 +59,7 @@ pipeline {
 
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com' 
-            //GIT_AUTHOR_NAME  = 'Ganter123'
+            GIT_AUTHOR_NAME  = 'Ganter123'
         } 
        
          
