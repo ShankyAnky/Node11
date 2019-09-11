@@ -41,6 +41,11 @@ pipeline {
 
         }
     }
+        stage('SCM') {
+            steps {
+                git url: 'https://github.com/Ganter123/Node11.git'
+            }
+        }
         stage('build user') {
       steps {
         wrap([$class: 'BuildUser']) {
