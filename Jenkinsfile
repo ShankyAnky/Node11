@@ -5,6 +5,7 @@ pipeline {
         
         stage('Build and Test') {
             steps {
+                    sh 'echo ${GIT_AUTHOR_NAME}'
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
@@ -53,7 +54,7 @@ pipeline {
 
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com' 
-            GIT_AUTHOR_NAME  = 'Ganter123'
+            //GIT_AUTHOR_NAME  = 'Ganter123'
         } 
        
          
