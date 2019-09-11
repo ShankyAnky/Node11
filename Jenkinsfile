@@ -1,6 +1,6 @@
 pipeline {
     agent {
-docker { image 'newimage' }
+docker { image 'node' }
     }
 
 
