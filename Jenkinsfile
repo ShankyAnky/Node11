@@ -8,8 +8,8 @@ docker { image 'myimage' }
         
         stage('Build and Test') {
             steps { 
-                    sh 'sudo apt install npm -y'
-                    sh 'echo ${GIT_USER}'
+                  
+                    
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
