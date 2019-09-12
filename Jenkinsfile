@@ -12,6 +12,8 @@ pipeline {
             steps { 
                     echo 'Listing directory'
                     sh 'ls'
+                    sh 'node -v'
+                    sh 'npm -v'
                     sh 'chown -R $(whoami) ~/.npm'                    
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
