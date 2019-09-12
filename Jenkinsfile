@@ -11,21 +11,9 @@ pipeline {
         
         stage('Build and Test') {
             steps { 
-                    sh 'ls -la'
-                    sh 'rm -rf .npm'
-                    echo 'Listing directory'
-                    sh 'node -v'
-                    sh 'npm -v'
-                    //sh 'chown -R $(whoami) ~/.npm'                    
-                    sh 'npm install'      
-                    //sh 'npm audit fix'
                     
-                    sh 'ls'
-                    sh 'rm -rf eslint.xml'
-                    sh 'ls'
-                    sh './node_modules/.bin/eslint --ignore-path .gitignore . >> eslint.xml'
-                    sh 'ls'
-                    //sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+                    sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > check.xml' 
+                    sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
                     sh 'npm install sonarqube-scanner --save-dev' 
                     sh 'ls -la'
             }
