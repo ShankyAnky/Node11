@@ -19,6 +19,9 @@ pipeline {
                     //sh 'chown -R $(whoami) ~/.npm'                    
                     sh 'npm install'      
                     //sh 'npm audit fix'
+                    
+                    sh 'ls'
+                    sh 'rm -rf eslint.xml'
                     sh 'ls'
                     sh './node_modules/.bin/eslint --ignore-path .gitignore . >> eslint.xml'
                     sh 'ls'
