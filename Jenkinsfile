@@ -10,8 +10,9 @@ pipeline {
         
         stage('Build and Test') {
             steps { 
-                    sh 'ls ~/'
-                    sh 'rm -rf ~/.npm'
+                    sh 'ls -la ~/'
+                    sh 'cd ~/'
+                    sh 'rm -rf .npm'
                     echo 'Listing directory'
                     sh 'ls'
                     sh 'node -v'
