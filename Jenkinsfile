@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {image 'node'
-                 args ' --privileged'}
+                 args '-u 0'}
     }
 
 
