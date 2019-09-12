@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        docker {image 'node'}
+        docker {image 'node'
+                 args '-u 0'}
                  
                    
     }
@@ -10,11 +11,9 @@ pipeline {
         
         stage('Build and Test') {
             steps { 
-                    sh 'ls -la ~/'
-                    sh 'cd ~/'
+                    sh 'ls -la'
                     sh 'rm -rf .npm'
                     echo 'Listing directory'
-                    sh 'ls'
                     sh 'node -v'
                     sh 'npm -v'
                     //sh 'chown -R $(whoami) ~/.npm'                    
