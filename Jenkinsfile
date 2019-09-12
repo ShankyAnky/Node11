@@ -38,10 +38,10 @@ docker { image 'node' }
                     }
                 }
         }
-     stage("sidebar link") {
+    stage("sidebar link") {
         steps  { 
-        addBadge(text: "scm", link: "https://github.com/Ganter123/Node11.git")
-        addShortText(text: "${GIT_AUTHOR_NAME}")   
+        addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
+         addShortText(text: "${GIT_AUTHOR_NAME}")  
 
         }
     }
