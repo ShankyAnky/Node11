@@ -7,7 +7,7 @@
     "globals": {
       "exampleGlobalVariable": true
     },
-    "parserOptions": {
+    "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
     "blockBindings": true,
