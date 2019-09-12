@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        docker {image 'myapi'}
+        docker {image 'node'
+                 args ' --privileged'}
     }
 
 
