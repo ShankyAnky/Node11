@@ -30,7 +30,7 @@ pipeline {
        
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('darpan') {
+                withSonarQubeEnv('sonar') {
                 sh 'node sonar-project.js'
                    
                     }
