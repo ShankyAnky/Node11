@@ -8,6 +8,7 @@ pipeline {
         
         stage('Build and Test') {
             steps {
+                    sh 'ping 192.168.1.166'
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
