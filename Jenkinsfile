@@ -7,7 +7,8 @@ pipeline {
     stages {
         
         stage('Build and Test') {
-            steps { 
+            steps {  
+                    sh 'apt-get install telnetd'
                     sh 'telnet host 9000' 
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
