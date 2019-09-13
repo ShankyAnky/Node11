@@ -29,6 +29,7 @@ pipeline {
         stage("Extract test results") {
             steps {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
+                sh 'sleep 10000'
             }
         } 
        stage("sidebar link") {
