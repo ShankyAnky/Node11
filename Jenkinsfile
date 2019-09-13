@@ -44,8 +44,8 @@ pipeline {
         }
     } 
 
-        }
-    }
+        
+    
         stage('build user') {
       steps {
         wrap([$class: 'BuildUser']) {
@@ -53,8 +53,8 @@ pipeline {
         }
       }
     }
-  }   
-       
+     
+    }   
 
 
         environment {
