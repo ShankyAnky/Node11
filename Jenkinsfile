@@ -10,8 +10,8 @@ pipeline {
             steps {  
                    
                  //   sh 'apt-get install telnetd -y'
-                   // sh 'systemctl status inetd'
-                    sh 'telnet 192.168.1.166:9000'
+                   //sh 'systemctl status inetd'
+                  //  sh 'telnet 192.168.1.166:9000'
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
