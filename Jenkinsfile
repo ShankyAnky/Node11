@@ -39,21 +39,21 @@ pipeline {
      stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
-         addShortText(text: "${BUILD_USER}")  
+         addShortText(text: "${GIT_AUTHOR_NAME}")  
 
         }
     } 
 
         
     
-        stage('build user') {
+       /* stage('build user') {
       steps {
         wrap([$class: 'BuildUser']) {
           sh 'echo "${BUILD_USER}"'
         }
       }
     }
-     
+     */
     }   
 
 
