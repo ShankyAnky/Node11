@@ -35,6 +35,7 @@ var options = {
  * @requires {object} connection configuration object
  */
 const connectWithRetry = () => {
+	console.log('111');
 	mongoose.connect('mongodb+srv://apitesting:harekrishna123@cluster0-lgyzo.mongodb.net/test', options).then(()=>{
 		console.log('MongoDB is connected')
 	}).catch(err=>{
