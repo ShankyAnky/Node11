@@ -11,7 +11,7 @@ pipeline {
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-                  //  sh 'npm install sonarqube-scanner --save-dev' 
+                    sh 'npm install sonarqube-scanner --save-dev' 
                     sh 'ls -la'
             }
         }
@@ -28,14 +28,14 @@ pipeline {
             }
         } 
        
-      /*  stage('build && SonarQube analysis') {
+       stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
                 sh 'node sonar-project.js'
                    
                     }
                 }
-        }*/
+        }
      stage("sidebar link") {
         steps  { 
         addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
