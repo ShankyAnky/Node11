@@ -27,6 +27,14 @@ pipeline {
                 cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
             }
         } 
+       stage("sidebar link") {
+        steps  { 
+        addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
+         addShortText(text: "${GIT_AUTHOR_NAME}")  
+
+        }
+    } 
+
        
        stage('build && SonarQube analysis') {
             steps {
@@ -36,13 +44,7 @@ pipeline {
                     }
                 }
         }
-     stage("sidebar link") {
-        steps  { 
-        addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
-         addShortText(text: "${GIT_AUTHOR_NAME}")  
-
-        }
-    } 
+     
 
         
     
