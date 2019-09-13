@@ -30,10 +30,10 @@ pipeline {
        
        stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('sonar') {
+                //withSonarQubeEnv('sonar') {
                 sh 'node sonar-project.js'
                    
-                    }
+                //    }
                 }
         }
      stage("sidebar link") {
