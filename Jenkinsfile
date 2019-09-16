@@ -1,7 +1,7 @@
 pipeline {
    agent {
         docker {image 'node'
-               args '--network="host"'}
+               args '--network="host" -u 0'}
     }
 
     stages {
