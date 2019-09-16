@@ -11,7 +11,7 @@ pipeline {
                    
                  //   sh 'apt-get install telnetd -y'
                    //sh 'systemctl status inetd'
-                  //  sh 'telnet 192.168.1.166:9000'
+                    sh 'ping 192.168.1.166 -c 5'
                     sh 'apt update -y'
                     sh 'apt install default-jdk -y'
                     sh 'apt update -y'
