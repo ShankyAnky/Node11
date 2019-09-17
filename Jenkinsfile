@@ -14,11 +14,11 @@
 
 node {
       stage 'eslint'
-        sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
+        sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
       stage 'test'
         sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'	
       stage 'after build'            
-          checkstyle pattern: 'eslint.xml'
+          checkstyle pattern: 'test.xml'
           withSonarQubeEnv('sonar1') {  
            sh 'node sonar-project.js'                        
         }
