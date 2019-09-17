@@ -1,9 +1,10 @@
 node {
     checkout scm
 
-    def customImage = docker.build("node:${env.BUILD_ID}")
+    docker.withRegistry('http://localhost:8085') {
 
-    customImage.inside {
-        sh 'make test'
+        docker.image('my-custom-image').inside {
+            sh 'make test'
+        }
     }
 }
