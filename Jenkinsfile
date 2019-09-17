@@ -38,16 +38,17 @@ stage('Build & eslint'){
 
 node {
  stage 'test'  
-   sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+   sh './node_modules/.bin/mocha --recursive ./test/index_test.js --timeout 10000 > testfile.xml'
     }
 
 node {
+    docker.image('node').inside(' args '--network="host" -u 0'') {
     stage 'after build'    
           checkstyle pattern: 'test.xml'
           junit  'testfile.xml'
           withSonarQubeEnv('sonar1') {                                  
                         sh 'node sonar-project.js'                        
         }
-          
+    }    
 }
 
