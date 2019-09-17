@@ -13,11 +13,16 @@
 } */
 
 node {
-    
       stage 'eslint'
-        sh 'npm install'
         sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
       stage 'test'
-        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'
+        sh './node_modules/.bin/mocha --recursive ./test/*.* --timeout 10000'	
+      stage 'after build'            
+          checkstyle pattern: 'eslint.xml'
+          withSonarQubeEnv('sonar1') {  
+           sh 'node sonar-project.js'                        
+        }
+       
+           step([$class: 'Mailer', notifyEveryBuild: true, recipients: 'darpan.patel@volansys.com', sendToIndividuals: true])
+    
 }
-
