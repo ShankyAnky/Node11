@@ -23,6 +23,6 @@ node {
            sh 'node sonar-project.js'                        
         }
        
-           step([$class: 'Mailer', notifyEveryBuild: true, recipients: 'darpan.patel@volansys.com', sendToIndividuals: true])
+        //   step([$class: 'Mailer', notifyEveryBuild: true, recipients: 'darpan.patel@volansys.com', sendToIndividuals: true])
     
-}
+
