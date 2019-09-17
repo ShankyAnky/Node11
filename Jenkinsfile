@@ -3,7 +3,7 @@ node {
 
     docker.withRegistry('http://localhost:8085') {
 
-        docker.image('my-custom-image').inside {
+        docker.image('newimage').inside {
             sh 'make test'
         }
     }
