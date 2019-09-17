@@ -4,7 +4,8 @@ node {
     docker.withRegistry('http://localhost:8085') {
 
         docker.image('newimage').inside {
-            sh 'make test'
+            sh 'sleep 1m'
+            sh 'echo "hello"'
         }
     }
 }
