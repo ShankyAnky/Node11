@@ -41,7 +41,7 @@ stage('Build & eslint'){
 
 node {
  stage 'test'
-  sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+   sh './node_modules/.bin/mocha --recursive ./test/index_test.js --timeout 10000 > testfile.xml'
     // stage 'cobertura'
    // sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
 }
