@@ -10,7 +10,7 @@ node {
             
         }
     }
-}
+
 
 /*node {
     checkout scm
