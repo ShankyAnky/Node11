@@ -42,7 +42,7 @@ node {
     }
 
 node {
-    docker.image('node').inside('-v --network="host" -u 0') {
+    docker.image('node') //.inside('-v --network="host" -u 0') {
     stage 'after build'    
           checkstyle pattern: 'test.xml'
           junit  'testfile.xml'
