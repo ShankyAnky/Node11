@@ -39,8 +39,8 @@ stage('Build & eslint'){
 }
 
 node {
- stage 'test'
-   sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+ //stage 'test'
+//   sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
     stage 'cobertura'
     sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
 }
