@@ -32,7 +32,9 @@ stage('Build & eslint'){
      docker.image('mongo').withRun('-e "MONGO_INITDB_ROOT_USERNAME=root" -e "MONGO_INITDB_ROOT_PASSWORD=vt123" -p 27018:27017') { c ->       
          sh 'npm install'
          sh 'npm install sonarqube-scanner --save-dev'
-         sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'        
+         sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
+         stage 'cobertura'
+    sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
         
         }
     }
@@ -41,8 +43,7 @@ stage('Build & eslint'){
 node {
  //stage 'test'
 //   sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-    stage 'cobertura'
-    sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
+    
 }
 
 node {
