@@ -3,16 +3,23 @@ node {
 
     docker.withRegistry('http://localhost:8085') {
 
-        docker.image('myimage').inside {
+       
+             def customImage = docker.build("registry:${env.BUILD_ID}") 
+            customImage.push()
             
-            sh 'echo "hello"'
+            
         }
     }
 }
 
-
-node {
+/*node {
     checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
-    customImage.push()
-}
+
+    docker.withRegistry('https://registry.example.com', 'credentials-id') {
+
+        def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+        /* Push the container to the custom Registry */
+   /*     customImage.push()
+    }
+}*/
