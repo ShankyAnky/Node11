@@ -33,7 +33,7 @@ stage('Build & eslint'){
          sh 'npm install'
          sh 'npm install sonarqube-scanner --save-dev'
          sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
-         stage 'cobertura'
+       //  stage 'cobertura'
     sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
         
         }
