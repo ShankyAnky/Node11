@@ -49,6 +49,6 @@ node {
           withSonarQubeEnv('sonar1') {                                  
                         sh 'node sonar-project.js'                        
         }
-    }    
+       
 }
 
