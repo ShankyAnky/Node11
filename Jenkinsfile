@@ -33,17 +33,17 @@ stage('Build & eslint'){
          sh 'npm install'
          sh 'npm install sonarqube-scanner --save-dev'
          sh './node_modules/.bin/eslint  -f checkstyle --ignore-path .gitignore . --fix > test.xml'
-       //  stage 'cobertura'
-    sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
+       
         
         }
     }
 }
 
 node {
- //stage 'test'
-//   sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
-    
+ stage 'test'
+  sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
+    // stage 'cobertura'
+    sh 'cobertura coberturaReportFile: "reports/cobertura-coverage.xml"'
 }
 
 node {
