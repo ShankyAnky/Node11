@@ -24,7 +24,7 @@
     }
 }*/
 libraries {
-  lib('library')
+  lib('library@master')
 }
 
 pipeline {
