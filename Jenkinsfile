@@ -28,6 +28,7 @@ libraries {
 }
 
 pipeline {
+    agent any
 
     
     email()
