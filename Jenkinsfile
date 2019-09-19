@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'slave'}
+    agent any 
 
     stages {
         
@@ -15,13 +15,13 @@ pipeline {
         
         stage('Checkstyle') {
            steps {        
-        checkstyle pattern: 'eslint.xml'
+        checkstyle()
            }
         }
         
         stage("Extract test results") {
             steps {
-                cobertura coberturaReportFile: 'reports/cobertura-coverage.xml'
+                cobertura()
             }
         } 
        
