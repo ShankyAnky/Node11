@@ -1,4 +1,4 @@
-node {
+/*node {
     checkout scm
 
     docker.withRegistry('http://localhost:8085') {
@@ -9,7 +9,7 @@ node {
             
             
         }
-    }
+    }*/
 
 
 /*node {
@@ -23,3 +23,10 @@ node {
    /*     customImage.push()
     }
 }*/
+
+@Library('library')_
+
+stage('mail') {
+    echo 'Hello world'
+   
+}
