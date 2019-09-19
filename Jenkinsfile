@@ -23,13 +23,13 @@ pipeline {
         
         stage('Checkstyle') {
            steps {        
-        checkstyle()
+         _cobertura()
            }
         }
         
         stage("Extract test results") {
             steps {
-                cobertura()
+                _cobertura()
             }
         } 
        
