@@ -30,8 +30,13 @@ libraries {
 pipeline {
     agent any
     stages {
+        
+        stage('email') {
+            steps {  
 
     
     email()
 }
+}
+    }
 }
