@@ -1,3 +1,11 @@
+
+library identifier: 'library@master', retriever: modernSCM(
+[$class: 'GitSCMSource',
+remote: 'https://github.com/Ganter123/library.git',
+])
+
+
+
 pipeline {
     agent any 
 
