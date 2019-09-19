@@ -23,10 +23,12 @@
    /*     customImage.push()
     }
 }*/
+libraries {
+  lib('library')
+}
 
-@Library('library')_
+pipeline {
 
-stage('mail') {
-    echo 'Hello world'
-    exit 1
+    
+    email()
 }
