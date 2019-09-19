@@ -29,7 +29,9 @@ libraries {
 
 pipeline {
     agent any
+    stages {
 
     
     email()
+}
 }
