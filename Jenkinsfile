@@ -22,21 +22,11 @@
         /* Push the container to the custom Registry */
    /*     customImage.push()
     }
-}*/
-libraries {
-  lib('library@master')
-}
 
-pipeline {
-    agent any
-    stages {
-        
-        stage('email') {
-            steps {  
-
-    
-    email()
-}
-}
     }
-}
+}*/
+
+library identifier: 'library@master', retriever: modernSCM(
+[$class: 'GitSCMSource',
+remote: 'https://github.com/Ganter123/library.git',
+credentialsId: 'Ganter123'])
