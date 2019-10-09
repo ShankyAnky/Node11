@@ -68,9 +68,9 @@ pipeline {
        
        stage('Flock') {
             steps {
-             Webhook URL:https://api.flock.com/hooks/sendMessage/1a14fb70-4b86-4e8e-80ce-403ff80f9369
+           //  Webhook URL:https://api.flock.com/hooks/sendMessage/1a14fb70-4b86-4e8e-80ce-403ff80f9369
              //  Webhook URL: https://apps.flock.com/manage/webhook/4bea8c4e-b098-406c-a3ea-37c07043c7bb/5ab50486813a4599930a4f23399d7ed2
-              //  volansys channel: '#jenkins',
+                volansys channel: '#Jenkins',
                     color: 'good',
                     message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             
