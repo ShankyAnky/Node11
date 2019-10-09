@@ -45,14 +45,14 @@ pipeline {
     } 
 
        
-     /*  stage('build && SonarQube analysis') {
+       stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar1') {
                 sh 'node sonar-project.js'
                    
                     }
                 } 
-        } */
+        } 
      
 
         
