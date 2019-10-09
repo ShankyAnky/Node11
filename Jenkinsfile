@@ -6,7 +6,7 @@ pipeline {
         
         stage('Build and Test') {
             steps {
-                    sh 'npm -a'
+                    sh 'npm -v'
                     sh 'npm install'                  
                     sh './node_modules/.bin/eslint -f checkstyle --ignore-path .gitignore . --fix > eslint.xml'
                     sh './node_modules/.bin/nyc --reporter=cobertura node_modules/.bin/_mocha "test/**/*.js"'
