@@ -45,14 +45,14 @@ pipeline {
     } 
 
        
-       stage('build && SonarQube analysis') {
+     /*  stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar1') {
                 sh 'node sonar-project.js'
                    
                     }
-                }
-        }
+                } 
+        } */
      
 
         
@@ -65,6 +65,16 @@ pipeline {
       }
     }
      */
+       
+       stage('Flock') {
+            steps {
+                volansys channel: '#jenkins',
+                    color: 'good',
+                    message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
+            
+            }
+}
+       
     }   
 
 
