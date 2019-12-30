@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'slave'}
+    agent any
 
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
        
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv('darpan') {
+                withSonarQubeEnv('darp{label 'slave'}an') {
                 sh 'node sonar-project.js'
                    
                     }
@@ -61,10 +61,10 @@ pipeline {
             EMAIL_TO = 'darpan.patel@volansys.com' 
             GIT_AUTHOR_NAME  = 'Ganter123'
         } 
-       
+       {label 'slave'}
          
            post {
-
+{label 'slave'}
             
                   failure {
                 emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}', 
