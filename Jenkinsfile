@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'slave'}
 
 
     stages {
@@ -35,7 +35,7 @@ pipeline {
                 }
         }
     stage("sidebar link") {
-        steps  { 
+        steps  { any
        // addBadge(icon: "folder.gif", text: "scm", link: "https://github.com/Ganter123/Node11.git")  
          addShortText(text: "${GIT_AUTHOR_NAME}")  
 
@@ -55,7 +55,7 @@ pipeline {
     }
   }   
        
-
+any
 
         environment {
             EMAIL_TO = 'darpan.patel@volansys.com' 
@@ -79,7 +79,7 @@ pipeline {
             changed {
                 emailext body: 'Check console output at $BUILD_URL to view the results.', 
                         to: EMAIL_TO, 
-                        subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
+                        subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'any
             }
         }
 
